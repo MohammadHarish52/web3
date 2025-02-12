@@ -1,28 +1,29 @@
-import { PublicKey } from "@solana/web3.js";
-import { getMint, TOKEN_2022_PROGRAM_ID } from "@solana/spl-token";
+import {
+  LAMPORTS_PER_SOL,
+  SystemProgram,
+  Transaction,
+  sendAndConfirmTransaction,
+  Keypair,
+} from "@solana/web3.js";
 
-const address = new PublicKey("C33qt1dZGZSsqTrHdtLKXPZNoxs6U1ZBfyDkzmj6mXeR");
-const mintData = await getMint(
+const sender = pg.wallet.keypair;
+const receiver = new Keypair();
+
+const transferInstruction = SystemProgram.transfer({
+  fromPubkey: sender.publicKey,
+  toPubkey: receiver.publicKey,
+  lamports: 0.01 * LAMPORTS_PER_SOL,
+});
+
+const transaction = new Transaction().add(transferInstruction);
+
+const transactionSignature = await sendAndConfirmTransaction(
   pg.connection,
-  address,
-  "confirmed",
-  TOKEN_2022_PROGRAM_ID
+  transaction,
+  [sender]
 );
 
 console.log(
-  JSON.stringify(
-    mintData,
-    (key, value) => {
-      // Convert BigInt to String
-      if (typeof value === "bigint") {
-        return value.toString();
-      }
-      // Handle Buffer objects
-      if (Buffer.isBuffer(value)) {
-        return `<Buffer ${value.toString("hex")}>`;
-      }
-      return value;
-    },
-    2
-  )
+  "Transaction Signature:",
+  `https://solana.fm/tx/${transactionSignature}?cluster=devnet-solana`
 );
