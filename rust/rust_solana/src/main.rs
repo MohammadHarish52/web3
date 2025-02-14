@@ -1,14 +1,31 @@
 // syntax and basic data types
 
-fn sum_elements(numbers: Vec<u64>) {
-    let mut total: u64 = 0;
-    for i in numbers {
-        total = total + i;
-    }
-    println!("Total: {}", total);
+struct Product {
+    name: String,
+    price: u64,
 }
 
+fn calculate_total_price(products: Vec<Product>) -> u64 {
+    let mut total: u64 = 0;
+    for p in products {
+        total += p.price;
+    }
+    total
+}
 fn main() {
-    let numbers = vec![3, 4, 5, 5, 6, 5];
-    sum_elements(numbers);
+    let product1 = Product {
+        name: "product1".to_string(),
+        price: 100,
+    };
+    let product2 = Product {
+        name: "product2".to_string(),
+        price: 200,
+    };
+    let product3 = Product {
+        name: "product3".to_string(),
+        price: 300,
+    };
+    let products = vec![product1, product2, product3];
+    let total = calculate_total_price(products);
+    println!("Total price: {}", total);
 }
