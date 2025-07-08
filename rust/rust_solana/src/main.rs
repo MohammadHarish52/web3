@@ -1,11 +1,5 @@
-// ownership and borrowing
-
-fn len_string(s: &String) -> usize {
-    s.len()
-}
+// error handling
 
 fn main() {
-    let s = String::from("Big doobs");
-    let le = len_string(&s);
-    println!("The length of {}", le);
+    println!("Hello, world!");
 }
