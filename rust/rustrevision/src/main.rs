@@ -1,25 +1,27 @@
-// rust data types and varible assignment 1
+enum UserRole {
+    Admin,
+    Editor,
+    Viewer,
+}
+
+fn describe(role: UserRole) {
+    match role {
+        UserRole::Admin => {
+            println!("User is Admin");
+        }
+        UserRole::Editor => {
+            println!("USer is editor")
+        }
+        UserRole::Viewer => {
+            println!("user is viewer")
+        }
+    }
+}
+
 fn main() {
-    let tup: (&str, u8, bool) = ("Harish", 23, true);
-    println!("name={} , age = {} , isdev = {}", tup.0, tup.1, tup.2);
-    let dev = Token {
-        name: String::from("solana"),
-        symbol: String::from("sol"),
-        supply: 678888888,
-    };
-    print_token(&dev);
-}
+    let user1 = UserRole::Admin;
+    let user2 = UserRole::Editor;
 
-// fn assignment and structs
-struct Token {
-    name: String,
-    symbol: String,
-    supply: u64,
-}
-
-fn print_token(token: &Token) {
-    println!(
-        "{} is Token whose symbol is {} and has a supply of {}",
-        token.name, token.symbol, token.supply
-    );
+    describe(user1);
+    describe(user2);
 }

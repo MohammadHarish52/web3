@@ -1,3 +1,8 @@
 #toml
 Cargo.lock
 target/
+
+# Binaries (in case you build release versions)
+*.exe
+*.pdb
+*.dll
