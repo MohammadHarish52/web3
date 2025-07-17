@@ -1,0 +1,10 @@
+C:\Users\91638\Desktop\web3\rust\symmetricencryption\target\debug\deps\libpoly1305-6efd778d54272189.rmeta: C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\lib.rs C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend.rs C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend\avx2.rs C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend\avx2\helpers.rs C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend\autodetect.rs C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend\soft.rs
+
+C:\Users\91638\Desktop\web3\rust\symmetricencryption\target\debug\deps\poly1305-6efd778d54272189.d: C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\lib.rs C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend.rs C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend\avx2.rs C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend\avx2\helpers.rs C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend\autodetect.rs C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend\soft.rs
+
+C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\lib.rs:
+C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend.rs:
+C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend\avx2.rs:
+C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend\avx2\helpers.rs:
+C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend\autodetect.rs:
+C:\Users\91638\.cargo\registry\src\index.crates.io-6f17d22bba15001f\poly1305-0.8.0\src\backend\soft.rs:
