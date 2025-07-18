@@ -1,19 +1,27 @@
 // this is stack and & points to reference so no error is thrown
+// mutable and immutable borrowing can't co exits
 
 fn main() {
-    let a = String::from("Solana is amazing");
-    let mut s = String::from("Btc is rocket");
-    add_emoji(&mut s);
-    let b = &a;
-    print_length(b);
+    let mut s = String::from("Harish");
+
+    let r1 = &s;
+    let r2 = &s;
+
+    println!("{} {}", r1, r2);
+
+    let r3 = &mut s;
+
+    println!("{}", r3);
 }
 
-fn print_length(s: &String) {
-    let length = s.len();
-    print!("length of the string {}", length);
-}
+// fn main() {
+//     let mut s = String::from("Harish");
 
-fn add_emoji(s: &mut String) {
-    s.push_str(" 🚀");
-    println!("muted String {}", s);
-}
+//     let r1 = &s;
+//     let r2 = &s;
+
+//     let r3 = &mut s;  // error
+//     println!("{} {}", r1, r2);
+
+//     println!("{}", r3);
+// }
