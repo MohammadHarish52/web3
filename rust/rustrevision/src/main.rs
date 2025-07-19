@@ -1,63 +1,27 @@
-use std::io;
-
-enum TweetType {
-    Regular,
-    Excited,
-    Question,
+struct Student {
+    name: String,
+    grade: u8,
+    subjects: Vec<String>,
 }
-
-let tweet_meta = TweetMeta {
-    original: tweet.clone(),
-    tweet_type,
-    length: tweet.len(),
-};
-
-
-fn add_emoji(tweet: &mut String) {
-    tweet.push_str(" 😂");
-}
-
-fn analyse_tweet(tweet: &String) -> TweetType {
-    if tweet.contains("!") {
-        return TweetType::Excited;
-    } else if tweet.contains("?") {
-        return TweetType::Question;
+impl Student {
+    fn add_subject(&mut self) {
+        self.subjects.push(String::from("Hindi"));
     }
-    return TweetType::Regular;
-}
-fn print_previw(tweet: &String) {
-    let preview = &tweet[..std::cmp::min(10, tweet.len())];
-    println!("Preview : {}", preview);
-}
 
-fn calculate_len(tweet: &String) {
-    let len = tweet.len();
-    println!("Length : {}", len)
+    fn display(&self) {
+        println!(
+            "{} has grade {} and has Subjects {:?}",
+            self.name, self.grade, self.subjects
+        )
+    }
 }
 
 fn main() {
-    println!("Enter your tweet:");
-
-    let mut tweet = String::new(); // mutable string to store tweet
-
-    io::stdin()
-        .read_line(&mut tweet) // read from standard tweet
-        .expect("Failed to read line");
-
-    // Remove trailing newline characters
-    let mut tweet = tweet.trim().to_string(); // returns a &str
-
-    println!("Original: {}", tweet);
-    calculate_len(&tweet);
-    print_previw(&tweet);
-    add_emoji(&mut tweet);
-    let tweet_type = analyse_tweet(&tweet);
-
-    match tweet_type {
-        TweetType::Excited => println!("Tweet is excited"),
-        TweetType::Question => println!("Tweet is a Question."),
-        TweetType::Regular => println!("Tweet is Regular."),
-    }
-
-  
+    let mut s1 = Student {
+        name: String::from("Harish"),
+        grade: 97,
+        subjects: vec![String::from("Maths"), String::from("Science")],
+    };
+    s1.add_subject();
+    s1.display();
 }
