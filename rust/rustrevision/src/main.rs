@@ -1,41 +1,24 @@
-trait Printable {
-    fn print(&self);
-}
-
-struct Tweet {
-    user: String,
-    text: String,
-}
-
-struct ImagePost {
-    url: String,
-}
-
-fn show_post<T: Printable>(item: T) {
-    item.print();
-}
-
-impl Printable for Tweet {
-    fn print(&self) {
-        println!("Tweet by {} :{}", self.user, self.text)
-    }
-}
-
-impl Printable for ImagePost {
-    fn print(&self) {
-        println!("Image :{}", self.url)
+fn calculate(a: i32, b: i32, op: char) -> Result<i32, String> {
+    match op {
+        '+' => Ok(a + b),
+        '-' => Ok(a - b),
+        '*' => Ok(a * b),
+        '/' => {
+            if b == 0 {
+                Err("dicide by zero".to_string())
+            } else {
+                Ok(a / b)
+            }
+        }
+        _ => Err("Unsupported".to_string()),
     }
 }
 
 fn main() {
-    let tweet1 = Tweet {
-        user: "Harish".to_string(),
-        text: "Harish".to_string(),
-    };
-    let img = ImagePost {
-        url: "Everyone is gay".to_string(),
-    };
+    let result = calculate(10, 3, '/');
 
-    show_post(tweet1);
-    show_post(img);
+    match result {
+        Ok(value) => println!("Result:{}", value),
+        Err(e) => println!("err{}", e),
+    }
 }
