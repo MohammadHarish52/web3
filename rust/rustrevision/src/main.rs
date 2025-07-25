@@ -1,27 +1,14 @@
-// enum with pattern matching
-enum TweetType {
-    Text(String),
-    Image(String),
-    Video { url: String, duration: u32 },
-}
-
-fn analyze_tweet(tweet: TweetType) {
-    match tweet {
-        TweetType::Text(tweet) => println!("Tweet is {}", tweet),
-        TweetType::Image(img) => println!("image is {}", img),
-        TweetType::Video { url, duration } => {
-            println!("Video url is {} and is {} long", url, duration)
-        }
+fn get_tweet_by_id(id: u32) -> Option<String> {
+    if id == 1 {
+        return Some(String::from("This is the tweet"));
     }
+    None
 }
 
 fn main() {
-    analyze_tweet(TweetType::Text(String::from(
-        "Rust is such a great language",
-    )));
-    analyze_tweet(TweetType::Image(String::from("Some ur")));
-    analyze_tweet(TweetType::Video {
-        url: (String::from("some url")),
-        duration: (10),
-    });
+    let id = 1;
+    match get_tweet_by_id(id) {
+        Some(tweet) => println!("Tweet {}", tweet),
+        None => println!("No tweet"),
+    }
 }
