@@ -1,27 +1,41 @@
-use std::collections::HashMap;
+trait Printable {
+    fn print(&self);
+}
 
-fn s(text: &str) -> String {
-    text.to_string()
+struct Tweet {
+    user: String,
+    text: String,
+}
+
+struct ImagePost {
+    url: String,
+}
+
+fn show_post<T: Printable>(item: T) {
+    item.print();
+}
+
+impl Printable for Tweet {
+    fn print(&self) {
+        println!("Tweet by {} :{}", self.user, self.text)
+    }
+}
+
+impl Printable for ImagePost {
+    fn print(&self) {
+        println!("Image :{}", self.url)
+    }
 }
 
 fn main() {
-    let mut tweet_map = HashMap::new();
+    let tweet1 = Tweet {
+        user: "Harish".to_string(),
+        text: "Harish".to_string(),
+    };
+    let img = ImagePost {
+        url: "Everyone is gay".to_string(),
+    };
 
-    tweet_map.insert(1, s("hey"));
-    tweet_map.insert(2, s("Yo yo yo"));
-    tweet_map.insert(3, s("hani sengh"));
-
-    for (i, v) in &tweet_map {
-        println!("The key value pair is {} = {}", i, v)
-    }
-
-    match tweet_map.get(&2) {
-        Some(tweet) => println!("tweet 2 is :{}", tweet),
-        None => println!("Tweet not found"),
-    }
-
-    tweet_map.remove(&1);
-
-    let tweet_count = tweet_map.len();
-    println!("No of Tweeets left {}", tweet_count);
+    show_post(tweet1);
+    show_post(img);
 }
