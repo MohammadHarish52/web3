@@ -6,3 +6,6 @@ target/
 *.exe
 *.pdb
 *.dll
+
+build_script_build*
+output
