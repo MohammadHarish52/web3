@@ -1,14 +1,16 @@
-fn get_tweet_by_id(id: u32) -> Option<String> {
-    if id == 1 {
-        return Some(String::from("This is the tweet"));
+fn parse_tweet(tweet: &str) -> Result<usize, String> {
+    if tweet.len() >= 280 {
+        Err(String::from("Tweet is above 280 characters"))
+    } else {
+        Ok(tweet.len())
     }
-    None
 }
 
 fn main() {
-    let id = 1;
-    match get_tweet_by_id(id) {
-        Some(tweet) => println!("Tweet {}", tweet),
-        None => println!("No tweet"),
+    let tweet =
+        String::from("Hey there i am thinking about doin 70 hr week can i do it i really want to");
+    match parse_tweet(&tweet) {
+        Ok(length) => println!("The length is {}", length),
+        Err(msg) => println!("Error is {}", msg),
     }
 }
